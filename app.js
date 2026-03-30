@@ -1,12 +1,3 @@
-// ════════════════════════════════════════════════
-//  LunchVote — app.js
-//  - Login: Employee ID only (no names stored)
-//  - Password: Employee ID itself
-//  - Admin: SEEIN00024
-//  - No duplicate employee IDs allowed
-//  - Bulk upload: Employee ID list only
-// ════════════════════════════════════════════════
-
 import { initializeApp }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -16,13 +7,6 @@ import {
 
 // ── Firebase Config ───────────────────────────────
 const firebaseConfig = {
-  // apiKey:            "AIzaSyBZaOUCcbMc5AmQmSeFL2cuArkLgkeibxo",
-  // authDomain:        "lunchvote-82062.firebaseapp.com",
-  // projectId:         "lunchvote-82062",
-  // storageBucket:     "lunchvote-82062.firebasestorage.app",
-  // messagingSenderId: "227164928735",
-  // appId:             "1:227164928735:web:7f2fb40d0ed8b9d0f9876a"
-
   apiKey: "AIzaSyAh0RW7uzyudhU1mfKA8Y02I2isp8jnm_s",
   authDomain: "officelunchvote.firebaseapp.com",
   projectId: "officelunchvote",
