@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LunchVote – Office Lunch Poll</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════ -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">🍱</div>
+    <div class="logo-text">Lunch<span>Vote</span></div>
+  </div>
+  <div id="userBadge">
+    <b id="badgeId">–</b>
+    <button id="logoutBtn" title="Logout">✕</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ══ LOGIN ══════════════════════════════════════ -->
+  <div id="loginScreen" class="screen active">
+    <br>
+    <div class="section-head">Welcome 👋</div>
+    <div class="section-sub">Login with your Seeburger Employee ID</div>
+    <div class="card">
+      <label>Employee ID</label>
+      <input type="text" id="loginEmpId" placeholder="e.g. SEEIN00042" autocomplete="off"
+             style="text-transform:uppercase"/>
+      <label>Password <span style="font-weight:400;text-transform:none;font-size:11px">(same as your Employee ID)</span></label>
+      <input type="password" id="loginPass" placeholder="••••••••••"/>
+      <button class="btn btn-primary" onclick="doLogin()">Login →</button>
+      <div id="loginLoading" style="display:none"><div class="spinner"></div></div>
+    </div>
+  </div>
+
+  <!-- ══ EMPLOYEE VOTE SCREEN ═══════════════════════ -->
+  <div id="voteScreen" class="screen">
+    <br>
+    <div class="section-head">Next week's lunch 🍽️</div>
+    <div class="section-sub">Select the days you'll join for lunch</div>
+
+    <div id="deadlineBadge"></div>
+    <div class="week-label" id="weekLabel">Loading…</div>
+
+    <div class="card">
+      <div id="daysList"></div>
+      <br>
+      <button class="btn btn-primary" id="submitVoteBtn" onclick="submitVote()">
+        Save my choices
+      </button>
+      <p class="submit-hint">Voting closes every Sunday at 6 PM</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📊 Live tally – next week</div>
+      <div class="card-sub">Updates in real time as colleagues vote</div>
+      <div id="tallyTable"></div>
+    </div>
+  </div>
+
+  <!-- ══ ADMIN SCREEN ════════════════════════════════ -->
+  <div id="adminScreen" class="screen">
+    <br>
+    <div class="section-head">HR Admin Panel 🛠️</div>
+    <div class="section-sub">Manage employee access and view weekly results</div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showAdminTab('employees', this)">Employees</button>
+      <button class="tab"        onclick="showAdminTab('results', this)">Weekly Results</button>
+    </div>
+
+    <!-- ── Employees tab ──────────────────────────── -->
+    <div id="tab-employees">
+
+      <!-- Add single employee -->
+      <div class="card">
+        <div class="card-title">Add Single Employee</div>
+        <div class="card-sub">Employee ID becomes their login and password</div>
+        <label>Employee ID</label>
+        <input type="text" id="empId" placeholder="e.g. SEEIN00042"
+               autocomplete="off" style="text-transform:uppercase"/>
+        <button class="btn btn-primary" onclick="addEmployee()">Add Employee</button>
+      </div>
+
+      <!-- Bulk upload -->
+      <div class="card">
+        <div class="card-title">Bulk Upload Employees</div>
+        <div class="card-sub">Upload a text or CSV file with one Employee ID per line</div>
+
+        <div class="info-box">
+          📄 File format — one Employee ID per line, no header needed:<br><br>
+          <code>SEEIN00001</code><br>
+          <code>SEEIN00002</code><br>
+          <code>SEEIN00003</code><br><br>
+          Duplicates are automatically skipped.
+        </div>
+
+        <div class="upload-area" onclick="document.getElementById('csvFileInput').click()">
+          <div class="upload-icon">📂</div>
+          <p><strong>Click to select file</strong></p>
+          <p class="upload-hint">Supports .csv or .txt files</p>
+        </div>
+        <input type="file" id="csvFileInput" accept=".csv,.txt"
+               style="display:none" onchange="handleCSVUpload(event)"/>
+
+        <div class="csv-preview" id="csvPreview" style="display:none"></div>
+        <button class="btn btn-outline-green" id="confirmUploadBtn"
+                style="display:none"></button>
+      </div>
+
+      <!-- Employee list -->
+      <div class="card">
+        <div class="card-title">Registered Employees</div>
+        <div class="card-sub" id="empCountSub">Loading…</div>
+        <div id="empList"><div class="spinner"></div></div>
+      </div>
+
+    </div><!-- /tab-employees -->
+
+    <!-- ── Results tab ────────────────────────────── -->
+    <div id="tab-results" style="display:none">
+
+      <div class="week-label" id="adminWeekLabel">Loading…</div>
+
+      <div class="card">
+        <div class="card-title">📊 Headcount by day</div>
+        <div class="card-sub">Total employees opted in per day – next week</div>
+        <div id="adminTallyTable"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Who voted</div>
+        <div class="card-sub">All employee votes with timestamp</div>
+        <div id="adminVoterList"><div class="spinner"></div></div>
+      </div>
+
+    </div><!-- /tab-results -->
+
+  </div><!-- /adminScreen -->
+
+</main>
+
+<div id="toast">Saved!</div>
+
+<footer>LunchVote &nbsp;•&nbsp; Seeburger India &nbsp;•&nbsp; Voting closes every Sunday 6 PM</footer>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
