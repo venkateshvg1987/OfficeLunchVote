@@ -16,12 +16,20 @@ import {
 
 // ── Firebase Config ───────────────────────────────
 const firebaseConfig = {
-  apiKey:            "AIzaSyBZaOUCcbMc5AmQmSeFL2cuArkLgkeibxo",
-  authDomain:        "lunchvote-82062.firebaseapp.com",
-  projectId:         "lunchvote-82062",
-  storageBucket:     "lunchvote-82062.firebasestorage.app",
-  messagingSenderId: "227164928735",
-  appId:             "1:227164928735:web:7f2fb40d0ed8b9d0f9876a"
+  // apiKey:            "AIzaSyBZaOUCcbMc5AmQmSeFL2cuArkLgkeibxo",
+  // authDomain:        "lunchvote-82062.firebaseapp.com",
+  // projectId:         "lunchvote-82062",
+  // storageBucket:     "lunchvote-82062.firebasestorage.app",
+  // messagingSenderId: "227164928735",
+  // appId:             "1:227164928735:web:7f2fb40d0ed8b9d0f9876a"
+
+  apiKey: "AIzaSyAh0RW7uzyudhU1mfKA8Y02I2isp8jnm_s",
+  authDomain: "officelunchvote.firebaseapp.com",
+  projectId: "officelunchvote",
+  storageBucket: "officelunchvote.firebasestorage.app",
+  messagingSenderId: "223491870090",
+  appId: "1:223491870090:web:e419175e6827e16df58c73",
+  measurementId: "G-L7LQWN2ETR"
 };
 
 const ADMIN_ID = "SEEIN00024";
