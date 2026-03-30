@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ══════════════════════════════════════════
-   DESIGN TOKENS
-   Warm, modern, food-inspired palette
-   Primary: Deep teal #0d6e6e
-   Accent:  Saffron orange #f59e0b
-   Base:    Warm cream #faf7f2
-══════════════════════════════════════════ */
+
 :root {
   --teal:      #0d6e6e;
   --teal2:     #0a5a5a;
